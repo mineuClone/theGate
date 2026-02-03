@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>theGate</title>
+    <link rel="preload" as="image" href="https://w.wallhaven.cc/full/yq/wallhaven-yq8grx.jpg" type="image/webp">
+    <script defer src="clock.js"></script>
+    <script defer src="weather.js"></script>
+    <script defer src="calendar.js"></script>
+    <script defer src="drag.js"></script>
+    <script type="module" src="utils.js"></script>
+    <script type="module" src="links.js"></script>
+    <script defer src="settings.js"></script>
+    <script defer src="todos.js"></script>
+    <script defer src="search.js"></script>
+    <script defer src="https://kit.fontawesome.com/79ea8947ca.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <svg style="display:none;">
+        <filter id="displacementFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.01 0.01" numOctaves="2" seed="5" result="turbulence" />
+            <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+            <feDisplacementMap in="SourceGraphic" in2="softMap" scale="100" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+    <div class="container">
+        <div class="bg">
+
+        </div>
+        <nav>
+            <div class="searchbar glass" >
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search" id="search-input">
+            </div>
+            <div class="home items" data-href="home">
+                <i class="fa-solid fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="links items" data-href="links">
+                <i class="fa-solid fa-link"></i>
+                <span>Links</span>
+            </div>
+            <div class="settings items" data-href="settings">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </div>
+        </nav>
+        <main>
+            <section class="content" id="home">
+                <div class="clock glass">
+                </div>
+                <div class="weather glass">
+                    <span id="weather"></span>
+                </div>
+                <div class="calendar glass">
+                    <div class="head">
+                        <div class="month">September</div>
+                        <div class="year">2025</div>
+                        <div class="cal-nav">
+                            <i class="fa-solid fa-angle-left glass" id="cal-nav-left"></i>
+                            <i class="fa-solid fa-angle-right glass" id="cal-nav-right"></i>
+                        </div>
+                    </div>
+                    <div class="days">
+                        <div class="day">S</div>
+                        <div class="day">M</div>
+                        <div class="day">T</div>
+                        <div class="day">W</div>
+                        <div class="day">T</div>
+                        <div class="day">F</div>
+                        <div class="day">S</div>
+                    </div>
+                    <div class="dates">
+
+                    </div>
+                </div>
+                <div class="todos glass">
+                    <div class="input">
+                        <input type="text" placeholder="pullup all nighter" id="todoInput">
+                        <i class="fa-solid fa-plus todo-add-btn"></i>
+                    </div>
+                    <div class="todos-list">
+                    </div>
+                </div>
+            </section>
+            <section class="links" id="links">
+                <div class="add-btn">
+                    <i class="fa-solid fa-plus glass"></i>
+                </div>
+            </section>
+            <section class="settings" id="settings">
+                <p>under construction</p>
+            </section>
+        </main>
+    </div>
+    <dialog id="prompt">
+        <span class="close">x</span>
+        <input id="addLinkInput" type="text" placeholder="domain.com">
+        <button id="addLink">Add</button>
+    </dialog>
+</body>
+
+</html>
